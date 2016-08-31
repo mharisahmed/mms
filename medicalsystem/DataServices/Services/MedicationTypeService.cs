@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using constrng;
-
 namespace medicalsystem.DataServices.Services
 {
-    public class CompanyService
+    public class MedicationTypeService
     {
-        private static CompanyService _service = null;
+        private static MedicationTypeService _service = null;
 
-        public static CompanyService Instance => _service ?? (_service = new CompanyService());
+        public static MedicationTypeService Instance => _service ?? (_service = new MedicationTypeService());
 
-        public List<tblCompay> Companies()
+        public List<tblType> MedicationTypes()
         {
 
             using (var _context = DataContextHelper.GetContext())
             {
-                var result = _context.Fetch<tblCompay>("select * from tblCompay");
+                var result = _context.Fetch<tblType>("select * from tblType");
 
                 return result;
 
@@ -25,42 +24,41 @@ namespace medicalsystem.DataServices.Services
 
         }
 
-        //string compname, string compaddress, string compnemail
-        public void AddCompany(tblCompay compobject)
+        //Add New Type
+        public void AddMedicationType(tblType Type)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Insert(compobject);
+                _context.Insert(Type);
 
             }
         }
 
         //Get Recode for Update
-        public tblCompay EditCompany(int id)
+        public tblType EditMedicationType(int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                var Company = _context.Single<tblCompay>("Select * From tblCompay where CompanyId=@0", id);
-                return Company;
+                return  _context.Single<tblType>("Select * From tblType where TypeId=@0", id);         
             }
         }
 
         // Update Record.
-        public void UpdateCompany(tblCompay comp)
+        public void UpdateMedicationType(tblType type)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Update(comp);
+                _context.Update(type);
             }
 
         }
 
         // Delete Record.
-        public void DeleteCompany(int id)
+        public void DeleteMedicationType(int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Delete<tblCompay>(id);
+                _context.Delete<tblType>(id);
             }
 
         }

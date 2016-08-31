@@ -4,33 +4,41 @@ using System.Linq;
 using System.Web;
 using constrng;
 
+
 namespace medicalsystem.DataServices.Services
 {
-    public class CompanyService
+    public class ProductService
     {
-        private static CompanyService _service = null;
+        private static ProductService _service = null;
 
-        public static CompanyService Instance => _service ?? (_service = new CompanyService());
+        public static ProductService Instance => _service ?? (_service = new ProductService());
 
-        public List<tblCompay> Companies()
+        public List<tblProduct> getproducts()
         {
-
             using (var _context = DataContextHelper.GetContext())
             {
-                var result = _context.Fetch<tblCompay>("select * from tblCompay");
-
-                return result;
-
-            }
-
+                var sql = 
+                          " select p.*,t.TypeName as TypeName from tblProduct p " +
+                          "inner join tblType t on p.TypeId = t.TypeId";
+                var abc = _context.Fetch<tblProduct>(sql);
+                return abc;
+            }           
         }
 
-        //string compname, string compaddress, string compnemail
-        public void AddCompany(tblCompay compobject)
+        public List<tblType> listoftypes() {
+            using (var _context = DataContextHelper.GetContext())
+            {
+                return _context.Fetch<tblType>("Select * from tblType");
+            }
+        }
+
+
+        //Add New product
+        public void AddProduct(tblProduct product)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Insert(compobject);
+                _context.Insert(product);
 
             }
         }

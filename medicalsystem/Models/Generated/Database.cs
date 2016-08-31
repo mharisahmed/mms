@@ -304,9 +304,10 @@ namespace constrng
 
 		[Column] public int TypeId { get; set; }
 
+        //[ResultColumn]
+        //public static List<tblType> getlistoftype { get; set; }
 
-
-	}
+    }
 
     
 
