@@ -373,7 +373,25 @@ line-height: 1.428571429;
    .navbar {
  border-radius: 0px; 
 }
-   
+}
+ /*==============================================
+    Customized Code. By Haris.     
+    =============================================*/
+
+ .dollar:before {
+    content: '$';
+    font-size:small;
 }
 
+.dollar{
+    color:red;
+}
+
+.dollarforSell:before {
+        content: '$';
+         font-size:small;
+}
+.dollarforSell {
+     color:forestgreen;
+}
 
