@@ -44,31 +44,31 @@ namespace medicalsystem.DataServices.Services
         }
 
         //Get Recode for Update
-        public tblCompay EditCompany(int id)
+        public tblProduct EditProduct(int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                var Company = _context.Single<tblCompay>("Select * From tblCompay where CompanyId=@0", id);
-                return Company;
+                var Product = _context.Single<tblProduct>("Select * From tblProduct where ProductId=@0", id);
+                return Product;
             }
         }
 
         // Update Record.
-        public void UpdateCompany(tblCompay comp)
+        public void UpdateProduct(tblProduct prod, int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Update(comp);
+                _context.Update(prod,id);
             }
 
         }
 
         // Delete Record.
-        public void DeleteCompany(int id)
+        public void DeleteProduct(int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Delete<tblCompay>(id);
+                _context.Delete<tblProduct>(id);
             }
 
         }

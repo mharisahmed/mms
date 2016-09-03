@@ -1,0 +1,58 @@
+﻿@model IEnumerable<constrng.tblDealer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DealId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DealerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerAddres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerEmail)
+        </th>
+        <th>
+            Company Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DealId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.DealerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DealerAddres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DealerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DealId  }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.DealId })
+        </td>
+    </tr>
+}
+
+</table>
