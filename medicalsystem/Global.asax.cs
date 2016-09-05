@@ -11,6 +11,8 @@ namespace medicalsystem
     {
         protected void Application_Start()
         {
+            //use global filters for checking roles in complete application
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
