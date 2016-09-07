@@ -37,9 +37,9 @@ namespace medicalsystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(tblType type)
+        public ActionResult Edit(tblType type,int id)
         {
-            DataServices.Services.MedicationTypeService.Instance.UpdateMedicationType(type);
+            DataServices.Services.MedicationTypeService.Instance.UpdateMedicationType(type,id);
             return RedirectToAction("Index");
         }
 

@@ -40,9 +40,9 @@ namespace medicalsystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(tblCompay  comp)
+        public ActionResult Edit(tblCompay  comp, int id)
         {
-            DataServices.Services.CompanyService.Instance.UpdateCompany(comp);
+            DataServices.Services.CompanyService.Instance.UpdateCompany(comp,id);
             return RedirectToAction("Index");
         }
 

@@ -32,25 +32,26 @@ namespace medicalsystem.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpGet]
-        //public ActionResult Edit(int id)
-        //{
-        //    var getCompanyForEdit = DataServices.Services.CompanyService.Instance.EditCompany(id);
-        //    return View(getCompanyForEdit);
-        //}
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var getCompanyForEdit = DataServices.Services.ProductService.Instance.EditProduct(id);
+            ViewBag.gettypes = new SelectList(DataServices.Services.ProductService.Instance.listoftypes(), "TypeId", "TypeName");
+            return View(getCompanyForEdit);
+        }
 
-        //[HttpPost]
-        //public ActionResult Edit(tblCompay comp)
-        //{
-        //    DataServices.Services.CompanyService.Instance.UpdateCompany(comp);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public ActionResult Edit(tblProduct prod,int id)
+        {
+            DataServices.Services.ProductService.Instance.UpdateProduct(prod,id);
+            return RedirectToAction("Index");
+        }
 
-        //[HttpGet]
-        //public ActionResult Delete(int id)
-        //{
-        //    DataServices.Services.CompanyService.Instance.DeleteCompany(id);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpGet]
+        public ActionResult delete(int id)
+        {
+            DataServices.Services.ProductService.Instance.DeleteProduct(id);
+            return RedirectToAction("index");
+        }
     }
 }

@@ -46,11 +46,11 @@ namespace medicalsystem.DataServices.Services
         }
 
         // Update Record.
-        public void UpdateCompany(tblCompay comp)
+        public void UpdateCompany(tblCompay comp, int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Update(comp);
+                _context.Update(comp,id);
             }
 
         }

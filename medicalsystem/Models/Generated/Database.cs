@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PetaPoco;
-using System.ComponentModel.DataAnnotations;
+
 namespace constrng
 {
 	public partial class constrngDB : Database
@@ -123,14 +123,10 @@ namespace constrng
 	[ExplicitColumns]
     public partial class tblCompay : constrngDB.Record<tblCompay>  
     {
-        
 		[Column] public int CompanyId { get; set; }
-        [Required(ErrorMessage = "Name Is Required",AllowEmptyStrings =false)]
-        [Column] public string CompanyName { get; set; }
-        [Required(ErrorMessage = "Address Is Required", AllowEmptyStrings = false)]
-        [Column] public string CompanyAddress { get; set; }
-        [Required(ErrorMessage = "Email Is Required", AllowEmptyStrings = false)]
-        [Column] public string CompanyEmail { get; set; }
+		[Column] public string CompanyName { get; set; }
+		[Column] public string CompanyAddress { get; set; }
+		[Column] public string CompanyEmail { get; set; }
 	}
     
 	[TableName("dbo.tblDealer")]
@@ -164,8 +160,8 @@ namespace constrng
 		[Column] public int PRMId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public DateTime PurchaseDate { get; set; }
-		[Column] public DateTime SaleDate { get; set; }
+		[Column] public int PurchasingPrice { get; set; }
+		[Column] public int SellingPrice { get; set; }
 		[Column] public DateTime MfgDate { get; set; }
 		[Column] public DateTime ExpDate { get; set; }
 		[Column] public string BatchNo { get; set; }
@@ -274,6 +270,5 @@ namespace constrng
 		[Column] public DateTime ModifiedDate { get; set; }
 		[Column] public DateTime? LastLogin { get; set; }
 		[Column] public string UserImg { get; set; }
-		[Column] public string Role { get; set; }
 	}
 }

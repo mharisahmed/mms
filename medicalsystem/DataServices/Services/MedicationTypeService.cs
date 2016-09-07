@@ -44,11 +44,11 @@ namespace medicalsystem.DataServices.Services
         }
 
         // Update Record.
-        public void UpdateMedicationType(tblType type)
+        public void UpdateMedicationType(tblType type,int id)
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Update(type);
+                _context.Update(type,id);
             }
 
         }
