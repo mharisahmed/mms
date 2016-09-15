@@ -270,5 +270,6 @@ namespace constrng
 		[Column] public DateTime ModifiedDate { get; set; }
 		[Column] public DateTime? LastLogin { get; set; }
 		[Column] public string UserImg { get; set; }
+		[Column] public string Role { get; set; }
 	}
 }
