@@ -4,7 +4,42 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
 }
+<script src="~/scripts/jquery-1.10.2.js"></script>
+<script src="~/scripts/Custom.js"></script>
 
+<script>CompanyNameButton()</script>
+<script>CompanyName()</script>
+@*<script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#txtUserName').keyup(function () {
+                var userName = $(this).val();
+
+                if (userName.length >= 3) {
+                    $.ajax({
+                        url: '/WebServices/RegistrationService.asmx/UserNameExists',
+                        method: 'post',
+                        data: { userName: userName },
+                        dataType: 'json',
+                        success: function (data) {
+                            var divElement = $('#divOutput');
+                            if (data.UserNameInUse) {
+                                divElement.text(data.UserName + ' already in use');
+                                divElement.css('color', 'red');
+                            }
+                            else {
+                                divElement.text(data.UserName + ' available')
+                                divElement.css('color', 'green');
+                            }
+                        },
+                        error: function (err) {
+                            alert("error"+err);
+                        }
+                    });
+                }
+            });
+        });
+</script>*@
 <h2>Create</h2>
 
 @using (Html.BeginForm()) 
@@ -23,32 +58,34 @@
             </div>
         </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="form-group input-group col-md-12 ">
+            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-4 col-md-pull-1 col-md-offset-1" })
+            <div class="col-md-5 col-md-pull-1">
+                @Html.TextBoxFor(model => model.CompanyName, new { id= "txtUserName", htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                <div id="divOutput">
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group input-group col-md-12">
+            @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label col-md-4 col-md-pull-1 col-md-offset-1" })
+            <div class="col-md-5 col-md-pull-1" >
                 @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompanyEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group input-group col-md-12">
+            @Html.LabelFor(model => model.CompanyEmail, htmlAttributes: new { @class = "control-label col-md-4 col-md-pull-1 col-md-offset-1 " })
+            <div class="col-md-5 col-md-pull-1 " >
                 @Html.EditorFor(model => model.CompanyEmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CompanyEmail, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+        <div class="form-group" id="btnDiv">
+            <div class="col-md-offset-4 col-md-8">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
@@ -58,3 +95,27 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@*@<div class="form-group input-group col-md-12">
+    @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-4 col-md-pull-2" })
+    <div class="col-md-4 col-md-pull-2">
+        @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group input-group ">
+    @Html.LabelFor(model => model.CompanyAddress, htmlAttributes: new { @class = "control-label col-md-3" })
+    <div class="col-md-9">
+        @Html.EditorFor(model => model.CompanyAddress, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.CompanyAddress, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group input-group">
+    @Html.LabelFor(model => model.CompanyEmail, htmlAttributes: new { @class = "control-label col-md-4" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.CompanyEmail, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.CompanyEmail, "", new { @class = "text-danger" })
+    </div>
+</div>*@
