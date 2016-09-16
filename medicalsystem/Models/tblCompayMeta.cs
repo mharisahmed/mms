@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using PetaPoco;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace constrng
 {
@@ -11,6 +6,10 @@ namespace constrng
     {
         [Required]
         public string CompanyName { get; set; }
+        [Required]
+        public string CompanyAddress { get; set; }
+        [Required]
+        public string CompanyEmail { get; set; }
 
     }
     [MetadataTypeAttribute(typeof(tbl_compayMeta))]

@@ -211,10 +211,14 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\tblCompayMeta.cs" />
     <Compile Include="Models\tblDealer.cs" />
+    <Compile Include="Models\tblDealerMeta.cs" />
     <Compile Include="Models\tblProduct.cs" />
+    <Compile Include="Models\tblProductMeta.cs" />
     <Compile Include="Models\tblProductReceivedDetail.cs" />
     <Compile Include="Models\tblProductReceivedMaster.cs" />
+    <Compile Include="Models\tblTypeMeta.cs" />
     <Compile Include="MyRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServices\Registration.cs" />

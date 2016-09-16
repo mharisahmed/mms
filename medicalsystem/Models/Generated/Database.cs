@@ -130,23 +130,23 @@ namespace constrng
 	}
     
 	[TableName("dbo.tblDealer")]
-	[PrimaryKey("DealId")]
+	[PrimaryKey("DealerId")]
 	[ExplicitColumns]
     public partial class tblDealer : constrngDB.Record<tblDealer>  
     {
-		[Column] public int DealId { get; set; }
+		[Column] public int DealerId { get; set; }
 		[Column] public string DealerName { get; set; }
-		[Column] public string DealerAddres { get; set; }
+		[Column] public string DealerAddress { get; set; }
 		[Column] public string DealerEmail { get; set; }
 		[Column] public int CompanyId { get; set; }
 	}
     
 	[TableName("dbo.tblProduct")]
-	[PrimaryKey("ProductId")]
+	[PrimaryKey("ProductID")]
 	[ExplicitColumns]
     public partial class tblProduct : constrngDB.Record<tblProduct>  
     {
-		[Column] public int ProductId { get; set; }
+		[Column] public int ProductID { get; set; }
 		[Column] public string ProductName { get; set; }
 		[Column] public int TypeId { get; set; }
 	}
@@ -160,22 +160,22 @@ namespace constrng
 		[Column] public int PRMId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public int PurchasingPrice { get; set; }
-		[Column] public int SellingPrice { get; set; }
+		[Column] public int PurchaseRate { get; set; }
+		[Column] public int SalesRate { get; set; }
 		[Column] public DateTime MfgDate { get; set; }
 		[Column] public DateTime ExpDate { get; set; }
 		[Column] public string BatchNo { get; set; }
 	}
     
 	[TableName("dbo.tblProductReceivedMaster")]
-	[PrimaryKey("PRMId")]
+	[PrimaryKey("PRId")]
 	[ExplicitColumns]
     public partial class tblProductReceivedMaster : constrngDB.Record<tblProductReceivedMaster>  
     {
-		[Column] public int PRMId { get; set; }
+		[Column] public int PRId { get; set; }
 		[Column] public int DealerId { get; set; }
 		[Column] public DateTime Date { get; set; }
-		[Column] public int Amount { get; set; }
+		[Column] public int TotalAmount { get; set; }
 		[Column] public string Remarks { get; set; }
 	}
     
@@ -233,15 +233,15 @@ namespace constrng
 		[Column] public int SIHId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public int PRMId { get; set; }
+		[Column] public int PRId { get; set; }
 	}
     
 	[TableName("dbo.tblType")]
-	[PrimaryKey("TypeId")]
+	[PrimaryKey("TypeID")]
 	[ExplicitColumns]
     public partial class tblType : constrngDB.Record<tblType>  
     {
-		[Column] public int TypeId { get; set; }
+		[Column] public int TypeID { get; set; }
 		[Column] public string TypeName { get; set; }
 	}
     
@@ -257,17 +257,17 @@ namespace constrng
 		[Column] public string EmailId { get; set; }
 		[Column] public string MobileNumber { get; set; }
 		[Column] public string Password { get; set; }
-		[Column] public int Designation { get; set; }
+		[Column] public int? Designation { get; set; }
 		[Column] public int? SecurityQuestionOne { get; set; }
 		[Column] public string SecurityAnswerOne { get; set; }
 		[Column] public int? SecurityQuestionTwo { get; set; }
 		[Column] public string SecurityAnswerTwo { get; set; }
-		[Column] public bool IsActive { get; set; }
-		[Column] public bool IsReset { get; set; }
+		[Column] public bool? IsActive { get; set; }
+		[Column] public bool? IsReset { get; set; }
 		[Column] public string CreatedBy { get; set; }
-		[Column] public DateTime CreatedDate { get; set; }
+		[Column] public DateTime? CreatedDate { get; set; }
 		[Column] public string Modifiedby { get; set; }
-		[Column] public DateTime ModifiedDate { get; set; }
+		[Column] public DateTime? ModifiedDate { get; set; }
 		[Column] public DateTime? LastLogin { get; set; }
 		[Column] public string UserImg { get; set; }
 		[Column] public string Role { get; set; }

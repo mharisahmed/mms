@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-﻿
-=======
-﻿function CompanyNameEdit() {
+
+function CompanyNameEdit() {
     $(document).ready(function () {
         var bla = $('#txtUserName').val();
         $('#txtUserName').keyup(function () {
@@ -18,7 +16,7 @@
                         if (userName == bla) {
                             divElement.text(data.UserName + ' availableeee');
                             divElement.css('color', 'green');
-                        
+
                         }
                         else if (data.UserNameInUse) {
                             divElement.text(data.UserName + ' already in use');
@@ -53,7 +51,7 @@ function CompanyNameEditButton() {
                     success: function (data) {
                         var divElement = $('#divOutput');
                         if (userName == bla) {
-                            
+
                             $('#btnDiv').show('fast');
                         }
                         else if (data.UserNameInUse) {
@@ -76,7 +74,7 @@ function CompanyNameEditButton() {
 
 function CompanyNameButton() {
     $(document).ready(function () {
-       
+
 
         $('#txtUserName').keyup(function () {
             var userName = $(this).val();
@@ -104,7 +102,7 @@ function CompanyNameButton() {
         });
     });
 }
->>>>>>> bf8412f69b048ce8ae7ea04188d3acfa22108bba
+
 function CompanyName() {
     $(document).ready(function () {
 
@@ -135,9 +133,9 @@ function CompanyName() {
             }
         });
     });
-<<<<<<< HEAD
-}
-=======
+
 }
 
->>>>>>> bf8412f69b048ce8ae7ea04188d3acfa22108bba
+
+
+
