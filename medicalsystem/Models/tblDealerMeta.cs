@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace constrng
 {
-    public class tblDealerMeta
+    public class tbl_DealerMeta
     {
         [Required]
         public string DealerName { get; set; }
@@ -18,7 +14,7 @@ namespace constrng
 
     }
 
-    [MetadataTypeAttribute(typeof(tblDealerMeta))]
+    [MetadataType(typeof(tbl_DealerMeta))]
     public partial class tblDealer
     {
 
