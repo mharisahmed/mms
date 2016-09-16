@@ -211,6 +211,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\tblCompayMeta.cs" />
     <Compile Include="Models\tblDealer.cs" />
     <Compile Include="Models\tblProduct.cs" />
     <Compile Include="Models\tblProductReceivedDetail.cs" />
