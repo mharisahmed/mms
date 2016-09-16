@@ -140,7 +140,7 @@ function CompanyName() {
 //Company existing name and button end
 
 
-// Medicine Type name and button start
+// Medicine Type Existing name and button start
 function TypeName() {
     $(document).ready(function () {
 
@@ -260,6 +260,277 @@ function TypeNameEditButton() {
                             $('#btnDiv').show('fast');
                         }
                         else if (data.TypeNameInUse) {
+                            $('#btnDiv').hide('fast');
+                        }
+                        else {
+                            $('#btnDiv').show('fast');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+// Medicine Type Existing name and button End
+
+//Product existing name and buttons start
+
+function ProductName() {
+    $(document).ready(function () {
+
+        $('#txtUserName').keyup(function () {
+            var ProductName = $(this).val();
+
+            if (ProductName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/ProductName.asmx/ProductNameExists',
+                    method: 'post',
+                    data: { ProductName: ProductName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (data.ProductNameInUse) {
+                            divElement.text(data.ProductName + ' already in use');
+                            divElement.css('color', 'red');
+                        }
+                        else {
+                            divElement.text(data.ProductName + ' available')
+                            divElement.css('color', 'green');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+
+}
+
+function ProductNameButton() {
+    $(document).ready(function () {
+
+
+        $('#txtUserName').keyup(function () {
+            var ProductName = $(this).val();
+
+            if (ProductName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/ProductName.asmx/ProductNameExists',
+                    method: 'post',
+                    data: { ProductName: ProductName },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (data.ProductNameInUse) {
+                            $('#btnDiv').hide('fast');
+                        }
+                        else {
+                            $('#btnDiv').show('fast');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+function ProductNameEdit() {
+    $(document).ready(function () {
+        var bla = $('#txtUserName').val();
+        $('#txtUserName').keyup(function () {
+            var ProductName = $(this).val();
+
+            if (ProductName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/ProductName.asmx/ProductNameExists',
+                    method: 'post',
+                    data: { ProductName: ProductName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (ProductName == bla) {
+                            divElement.text(data.ProductName + ' availableeee');
+                            divElement.css('color', 'green');
+
+                        }
+                        else if (data.ProductNameInUse) {
+                            divElement.text(data.ProductName + ' already in use');
+                            divElement.css('color', 'red');
+                        }
+                        else {
+                            divElement.text(data.ProductName + ' available')
+                            divElement.css('color', 'green');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+function ProductNameEditButton() {
+    $(document).ready(function () {
+        var bla = $('#txtUserName').val();
+        $('#txtUserName').keyup(function () {
+            var ProductName = $(this).val();
+
+            if (ProductName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/ProductName.asmx/ProductNameExists',
+                    method: 'post',
+                    data: { ProductName: ProductName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (ProductName == bla) {
+
+                            $('#btnDiv').show('fast');
+                        }
+                        else if (data.ProductNameInUse) {
+                            $('#btnDiv').hide('fast');
+                        }
+                        else {
+                            $('#btnDiv').show('fast');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+//Product existing name and buttons end
+
+//Dealer Existing Name And Button Starts
+function DealerName() {
+    $(document).ready(function () {
+
+        $('#txtUserName').keyup(function () {
+            var DealerName = $(this).val();
+
+            if (DealerName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/DealerName.asmx/DealerNameExists',
+                    method: 'post',
+                    data: { DealerName: DealerName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (data.DealerNameInUse) {
+                            divElement.text(data.DealerName + ' already in use');
+                            divElement.css('color', 'red');
+                        }
+                        else {
+                            divElement.text(data.DealerName + ' available')
+                            divElement.css('color', 'green');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+
+}
+
+function DealerNameButton() {
+    $(document).ready(function () {
+
+
+        $('#txtUserName').keyup(function () {
+            var DealerName = $(this).val();
+
+            if (DealerName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/DealerName.asmx/DealerNameExists',
+                    method: 'post',
+                    data: { DealerName: DealerName },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (data.DealerNameInUse) {
+                            $('#btnDiv').hide('fast');
+                        }
+                        else {
+                            $('#btnDiv').show('fast');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+function DealerNameEdit() {
+    $(document).ready(function () {
+        var bla = $('#txtUserName').val();
+        $('#txtUserName').keyup(function () {
+            var DealerName = $(this).val();
+
+            if (DealerName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/DealerName.asmx/DealerNameExists',
+                    method: 'post',
+                    data: { DealerName: DealerName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (DealerName == bla) {
+                            divElement.text(data.DealerName + ' availableeee');
+                            divElement.css('color', 'green');
+
+                        }
+                        else if (data.DealerNameInUse) {
+                            divElement.text(data.DealerName + ' already in use');
+                            divElement.css('color', 'red');
+                        }
+                        else {
+                            divElement.text(data.DealerName + ' available')
+                            divElement.css('color', 'green');
+                        }
+                    },
+                    error: function (err) {
+                        alert("error" + err);
+                    }
+                });
+            }
+        });
+    });
+}
+function DealerNameEditButton() {
+    $(document).ready(function () {
+        var bla = $('#txtUserName').val();
+        $('#txtUserName').keyup(function () {
+            var DealerName = $(this).val();
+
+            if (DealerName.length >= 3) {
+                $.ajax({
+                    url: '/WebServices/DealerName.asmx/DealerNameExists',
+                    method: 'post',
+                    data: { DealerName: DealerName },
+                    dataType: 'json',
+                    success: function (data) {
+                        var divElement = $('#divOutput');
+                        if (DealerName == bla) {
+
+                            $('#btnDiv').show('fast');
+                        }
+                        else if (data.DealerNameInUse) {
                             $('#btnDiv').hide('fast');
                         }
                         else {

@@ -12,5 +12,9 @@ namespace medicalsystem
 
         public string TypeName { get; set; }
         public bool TypeNameInUse { get; set; }
+        public string ProductName { get; set; }
+        public bool ProductNameInUse { get; set; }
+        public string DealerName { get; set; }
+        public bool DealerNameInUse { get; set; }
     }
 }
