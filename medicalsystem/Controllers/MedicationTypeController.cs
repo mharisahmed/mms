@@ -7,7 +7,7 @@ using constrng;
 
 namespace medicalsystem.Controllers
 {
-    [Authorize(Roles = "V")]
+    [Authorize(Roles = "A")]
     public class MedicationTypeController : Controller
     {
         // GET: Type
