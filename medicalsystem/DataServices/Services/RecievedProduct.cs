@@ -20,7 +20,7 @@ namespace medicalsystem.DataServices.Services
                 
                 var sql =
                          @" select mr.*,d.DealerName as DealerName,c.CompanyName as CompanyName from tblProductReceivedMaster mr 
-                            inner join tblDealer d on mr.DealerId=d.DealId
+                            inner join tblDealer d on mr.DealerId=d.DealerId
                             inner join tblCompay c on d.CompanyId=c.CompanyId";
                 var result = _context.Fetch<tblProductReceivedMaster>(sql);
                 return result;

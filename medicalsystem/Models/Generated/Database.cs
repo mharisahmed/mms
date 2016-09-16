@@ -142,11 +142,11 @@ namespace constrng
 	}
     
 	[TableName("dbo.tblProduct")]
-	[PrimaryKey("ProductID")]
+	[PrimaryKey("ProductId")]
 	[ExplicitColumns]
     public partial class tblProduct : constrngDB.Record<tblProduct>  
     {
-		[Column] public int ProductID { get; set; }
+		[Column] public int ProductId { get; set; }
 		[Column] public string ProductName { get; set; }
 		[Column] public int TypeId { get; set; }
 	}
@@ -168,14 +168,14 @@ namespace constrng
 	}
     
 	[TableName("dbo.tblProductReceivedMaster")]
-	[PrimaryKey("PRId")]
+	[PrimaryKey("PRMId")]
 	[ExplicitColumns]
     public partial class tblProductReceivedMaster : constrngDB.Record<tblProductReceivedMaster>  
     {
-		[Column] public int PRId { get; set; }
+		[Column] public int PRMId { get; set; }
 		[Column] public int DealerId { get; set; }
 		[Column] public DateTime Date { get; set; }
-		[Column] public int TotalAmount { get; set; }
+		[Column] public int Amount { get; set; }
 		[Column] public string Remarks { get; set; }
 	}
     
@@ -237,11 +237,11 @@ namespace constrng
 	}
     
 	[TableName("dbo.tblType")]
-	[PrimaryKey("TypeID")]
+	[PrimaryKey("TypeId")]
 	[ExplicitColumns]
     public partial class tblType : constrngDB.Record<tblType>  
     {
-		[Column] public int TypeID { get; set; }
+		[Column] public int TypeId { get; set; }
 		[Column] public string TypeName { get; set; }
 	}
     

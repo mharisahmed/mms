@@ -9,5 +9,8 @@ namespace medicalsystem
     {
         public string UserName { get; set; }
         public bool UserNameInUse { get; set; }
+
+        public string TypeName { get; set; }
+        public bool TypeNameInUse { get; set; }
     }
 }
