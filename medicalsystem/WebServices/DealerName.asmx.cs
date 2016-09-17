@@ -16,7 +16,7 @@ namespace medicalsystem.WebServices
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. Zindagi Kitni Haseen Hay Nightcrawler
     [System.Web.Script.Services.ScriptService]
     public class DealerName : System.Web.Services.WebService
     {

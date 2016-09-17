@@ -10,7 +10,6 @@
 <script>CompanyNameButton()</script>
 <script>CompanyName()</script>
 <h2>Create</h2>
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -31,7 +30,8 @@
         <div class="form-group input-group col-md-12 ">
             @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label col-md-4 col-md-pull-1 col-md-offset-1" })
             <div class="col-md-5 col-md-pull-1">
-                @Html.TextBoxFor(model => model.CompanyName, new { id= "txtUserName", htmlAttributes = new { @class = "form-control" } })
+                @*@Html.TextBoxFor(model => model.CompanyName, new { id = "txtUserName",htmlAttributes = new { @Class = "textbox" } } )*@
+                @Html.TextBoxFor(model => model.CompanyName, new { @Class = "form-control"  ,  id = "txtUserName" } )
                 @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                 <div id="divOutput">
                 </div>
