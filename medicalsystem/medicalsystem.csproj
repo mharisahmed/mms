@@ -193,6 +193,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\DealersController.cs" />
+    <Compile Include="Controllers\ExpiryProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicationTypeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="DataServices\DataContextHelper.cs" />
     <Compile Include="DataServices\Services\CompanyService.cs" />
     <Compile Include="DataServices\Services\DealersService.cs" />
+    <Compile Include="DataServices\Services\ExpiryPorduct.cs" />
     <Compile Include="DataServices\Services\LoginService.cs" />
     <Compile Include="DataServices\Services\MedicationTypeService.cs" />
     <Compile Include="DataServices\Services\ProductService.cs" />
@@ -277,6 +279,7 @@
     <Content Include="Views\Dealers\Edit.cshtml" />
     <Content Include="Views\ProductRecieved\Index.cshtml" />
     <Content Include="Views\ProductRecieved\Details.cshtml" />
+    <Content Include="Views\ExpiryProduct\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
