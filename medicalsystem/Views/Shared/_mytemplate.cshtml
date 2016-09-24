@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 @*<a class="navbar-brand" href="index.html">TAJ-MEDICAL</a>*@
-                @Html.ActionLink("TAJ-MEDICAL","Index", "Home",null, new { @class = "navbar-brand" })
+                @Html.ActionLink("TAJ-MEDICAL", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -43,7 +43,7 @@ font-size: 16px;">Last access : 30 May 2014 &nbsp;<a href="#" class="btn btn-dan
                         <img src="~/Content/img/find_user.png" class="user-image img-responsive" />
                     </li>
 
-                    
+
                     <li>
                         @Html.ActionLink("Companies", "Index", "Company")
                     </li>
@@ -51,7 +51,7 @@ font-size: 16px;">Last access : 30 May 2014 &nbsp;<a href="#" class="btn btn-dan
                         @Html.ActionLink("Medicien Type", "Index", "MedicationType")
                     </li>
                     <li>
-                       @Html.ActionLink("Products", "Index", "Product")
+                        @Html.ActionLink("Products", "Index", "Product")
                     </li>
                     <li>
                         @Html.ActionLink("Dealers", "Index", "Dealers")
@@ -102,15 +102,24 @@ font-size: 16px;">Last access : 30 May 2014 &nbsp;<a href="#" class="btn btn-dan
             </div>
         </footer>
     </div>
+    
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
     <script src="~/Content/js/jquery-1.10.2.js"></script>
+    
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="~/Content/js/bootstrap.min.js"></script>
+
+    @RenderSection("pagescript", required: false);
+
     <!-- METISMENU SCRIPTS -->
     <script src="~/Content/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="~/Content/js/custom.js"></script>
+   
+    <script src="http://formvalidation.io/vendor/formvalidation/js/formValidation.min.js"></script>
+    @*<script src="http://formvalidation.io/vendor/formvalidation/js/framework/bootstrap.min.js"></script>*@
+
 </body>
 </html>

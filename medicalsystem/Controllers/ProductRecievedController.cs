@@ -23,5 +23,15 @@ namespace medicalsystem.Controllers
             ViewBag.getproductlist = new SelectList(DataServices.Services.RecievedProduct.Instance.listofProduct(), "ProductId", "ProductName");
             return View(DataServices.Services.RecievedProduct.Instance.RecievedDetails(id));
         }
+
+        [HttpGet]
+        // Get Detail Of Master Recieved.
+        public ActionResult Create()
+        {
+
+            ViewBag.getDealer = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealId", "DealerName");
+            ViewBag.getProduct = new SelectList(DataServices.Services.RecievedProduct.Instance.listofProduct(), "ProductId", "ProductName");
+            return View();
+        }
     }
 }

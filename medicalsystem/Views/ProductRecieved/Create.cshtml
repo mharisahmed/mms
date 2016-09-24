@@ -1,0 +1,195 @@
+﻿@model constrng.tblProductReceivedMaster
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Recieving Form</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "bookForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Master Detail</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DealerId, "Select Dealer ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group col-md-4">
+                @*@Html.EditorFor(model => model.CompanyId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.DealerId, (IEnumerable<SelectListItem>)ViewBag.getDealer, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DealerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6 ">
+            <div class="DatePicker input-group input-append date" id="DatePicker">
+                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input type="text" class="form-control" name="dueDate[]" placeholder="Date" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @* @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextAreaFor(model => model.Remarks, new { @class = "form-control remark", @rows = "2", @id = "remarks" })
+                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        <br>
+        <div class="row" id="new_item">
+          <h4>Add Items Detail</h4>
+          <div class="form-group">
+                <div class="col-md-2">
+                    @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control", @id="ddlproduct" })
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtQty" id="txtQty" placeholder="Qty" />
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtCost" id="txtCost" placeholder="Cost" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="txtPrice" id="txtPrice" placeholder="Price" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="DatePicker form-control" name="txtMfg" id="txtMfg" placeholder="MFG Date" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="DatePicker form-control" name="txtExp" id="txtExp" placeholder="Exp Date" />
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtBatchNo" id="txtBatchNo" placeholder="Batch No" />
+                </div>
+                <div class="col-md-1">
+                    <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="update_item">
+            <h4>Update Items</h4>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control", @id = "ddlproduct" })
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtQty" id="txtQty" placeholder="Qty" />
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtCost" id="txtCost" placeholder="Cost" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="txtPrice" id="txtPrice" placeholder="Price" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="DatePicker form-control" name="txtMfg" id="txtMfg" placeholder="MFG Date" />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="DatePicker form-control" name="txtExp" id="txtExp" placeholder="Exp Date" />
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="txtBatchNo" id="txtBatchNo" placeholder="Batch No" />
+                </div>
+                <div class="col-md-1">
+                    <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-save"></i></button>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <!-- Table For Display Seleted Items-->
+        <div class="table-responsive">
+            <table id="myTable" class="table table-hover .table-condensed">
+                <tr>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Qty
+                    </th>
+                    <th>
+                        Cost
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        MFG Date
+                    </th>
+                    <th>
+                        EXP Date
+                    </th>
+                    <th>
+                        Batch No.
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section pagescript{
+    <link href="~/Content/datepicker/datepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/datepicker/datepicker3.min.css" rel="stylesheet" />
+    <script src="~/Content/datepicker/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize the date picker for the original due date field
+            $(".DatePicker")
+                .datepicker({
+                    format: 'yyyy/mm/dd'
+                })
+                .on('changeDate', function (evt) {
+                    // Revalidate the date field
+                    $('#taskForm').formValidation('revalidateField', $('#dueDatePicker').find('[name="dueDate[]"]'));
+                });
+
+            //Hide Update Div.
+            $("#update_item").hide();
+
+            $("#additem").click(function () {
+                $('#myTable tr:last').after('<tr><td>' + $('#ddlproduct :selected').text() + '</td><td>' + $('#txtQty').val() + '</td>'
+                                                + '<td>' + $('#txtCost').val() + '</td><td>' + $('#txtPrice').val() + '</td>'
+                                                + '<td>' + $('#txtMfg').val() + '</td>' + '<td>' + $('#txtExp').val() + '</td>'
+                                                + '<td>' + $('#txtBatchNo').val() + '</td>' + '<td>'
+                                                + '<button id="EditItem" type="button" class="btn btn-default EditItem"><i class="fa fa-edit"></i></button>'
+                                                + '<button id="DeleteItem" type="button" class="btn btn-default"><i class="fa fa-remove"></i></button>' + '</td></tr>'); 
+            });
+
+            //$(".EditItem").click(function () {
+            $("#EditItem").on('click', function () {
+                alert('click');
+            });
+
+            $(".DeleteItem").click(function () {
+                alert('click');
+            });
+
+        });
+    </script>
+
+}

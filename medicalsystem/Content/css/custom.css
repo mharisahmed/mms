@@ -395,3 +395,6 @@ line-height: 1.428571429;
      color:forestgreen;
 }
 
+.remark {
+    resize: none;
+}

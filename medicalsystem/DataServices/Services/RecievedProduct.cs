@@ -54,5 +54,19 @@ namespace medicalsystem.DataServices.Services
             }
 
         }
+
+
+        //Code For Create New Recieved Prodcut Entry
+
+        public List<tblDealer> listofDealers()
+        {
+            using (var _context = DataContextHelper.GetContext())
+            {
+                return _context.Fetch<tblDealer>("select DealId, DealerName from tblDealer");
+            }
+        }
+
+
+
     }
 }
