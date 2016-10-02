@@ -1,5 +1,6 @@
 ﻿@model medicalsystem.Models.ProductRecieved
 
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
@@ -10,7 +11,7 @@
 
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "bookForm" }))
 {
-@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
     <div class="form-horizontal">
         <h4>Master Detail</h4>
         <hr />
@@ -78,12 +79,14 @@
                     <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
-        </div>     
-        
+        </div>
+
+
+
         <div class="row" id="update_item">
             <h4>Update Items</h4>
             <div class="form-group">
-                <input type="hidden" id="Urid"  value="">
+                <input type="hidden" id="Urid" value="">
                 <div class="col-md-2">
                     @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control", @id = "Updateddlproduct" })
                 </div>
@@ -113,7 +116,7 @@
                 </div>
             </div>
         </div>
-
+        <hr />
         <!-- Table For Display Seleted Items-->
         <div class="table-responsive">
             <table id="myTable" class="table table-hover .table-condensed">
@@ -167,8 +170,7 @@
     <script>
         $(document).ready(function () {
             //Initialize Total Amout With 0.0
-            var totalamout = $('#ModelMaster_Amount');
-            totalamout.val("0.0");
+            $('#Amount').val("0.0");
 
             // Initialize the date picker for the original due date field
             $(".DatePicker")
@@ -186,7 +188,7 @@
 
             //Add Item To the Table.
             $("#additem").click(function () {
-                
+
                uniqueid += 1;
 
                $('#myTable tr:last').after('<tr id="'+uniqueid+'"><td id=" txtproduct['+uniqueid+']">' + $('#ddlproduct :selected').text() + '</td><td id=" txtQty['+uniqueid+']">' + $('#txtQty').val() + '</td>'
@@ -197,7 +199,7 @@
                                                 + '<button id="DeleteItem" type="button" class="btn btn-default DeleteItem"><i class="fa fa-remove"></i></button>' + '</td></tr>');
 
                var amount = parseInt($('#txtCost').val()) * parseInt($('#txtQty').val());
-               totalamout.val(parseInt(totalamout.val()) + amount);
+               $('#Amount').val(parseInt($('#Amount').val()) + amount);
                cleartxts();
             });
 
@@ -225,7 +227,7 @@
                 $("#update_item").hide();
                 alert('Record Updated!');
             });
-            
+
             //Edit Items
             $('#myTable').on('click', '.EditItem', function () {
                 $("#new_item").hide();
@@ -257,10 +259,10 @@
                 var amount = currentrow.find("td[id=' txtCost[" + recordId + "]']").html();
 
                 var subamount = parseInt(qty) * parseInt(amount);
-                totalamout.val(parseInt(totalamout.val()) - subamount);
+                $('#Amount').val(parseInt($('#Amount').val()) - subamount);
 
-                if (totalamout.val() == "" && totalamout.val() == 0) {
-                    totalamout.val("0.0");
+                if ($('#Amount').val() == "" && $('#Amount').val() == 0) {
+                    $('#Amount').val("0.0");
                 }
 
                 $(this).closest('tr').remove();
@@ -275,7 +277,7 @@
                 $('#txtMfg').val("");
                 $('#txtExp').val("");
                 $('#txtBatchNo').val("");
-               
+
                 $('#Updateddlproduct :selected').val($("#Updateddlproduct option:first").val());
                 $('#UpdatetxtQty').val("");
                 $('#UpdatetxtCost').val("");
@@ -288,3 +290,4 @@
     </script>
 
 }
+

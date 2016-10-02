@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using constrng;
+using medicalsystem.Models;
 
 namespace medicalsystem.Controllers
 {
@@ -32,6 +34,14 @@ namespace medicalsystem.Controllers
             ViewBag.getDealer = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealId", "DealerName");
             ViewBag.getProduct = new SelectList(DataServices.Services.RecievedProduct.Instance.listofProduct(), "ProductId", "ProductName");
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ProductRecieved prec)
+        {
+
+            
+            return RedirectToAction("Index");
         }
     }
 }

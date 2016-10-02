@@ -195,6 +195,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\ProductRecieved.cs" />
     <Compile Include="Models\tblDealer.cs" />
     <Compile Include="Models\tblProduct.cs" />
     <Compile Include="Models\tblProductReceivedDetail.cs" />
@@ -237,6 +238,8 @@
     <Content Include="Views\ProductRecieved\Index.cshtml" />
     <Content Include="Views\ProductRecieved\Details.cshtml" />
     <Content Include="Views\ProductRecieved\Create.cshtml" />
+    <Content Include="Views\ProductRecieved\Create_ProductRecievedPartial.cshtml" />
+    <Content Include="Views\ProductRecieved\Create_Oldd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
