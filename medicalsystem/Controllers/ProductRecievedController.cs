@@ -37,10 +37,18 @@ namespace medicalsystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ProductRecieved prec)
+        public ActionResult Create(ProductRecieved prorec, string Date)
         {
-
-            
+            tblProductReceivedMaster prMaster = new tblProductReceivedMaster();
+            prMaster.DealerId = prorec.ModelMaster.DealerId;
+            prMaster.Date =Convert.ToDateTime(Date);
+            prMaster.Amount = prorec.ModelMaster.Amount;
+            prMaster.Remarks = prorec.ModelMaster.Remarks;
+            int MrId = DataServices.Services.RecievedProduct.Instance.InsertMasterRecieved(prMaster);
+            if (MrId != 0)
+            {
+                // Detail Items Goes here.
+            }
             return RedirectToAction("Index");
         }
     }

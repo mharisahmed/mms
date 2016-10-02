@@ -67,6 +67,18 @@ namespace medicalsystem.DataServices.Services
         }
 
 
+        public int InsertMasterRecieved(tblProductReceivedMaster pro)
+        {
+            //int currid = 0;
+            using (var _context = DataContextHelper.GetContext())
+            {
+                _context.Insert(pro); 
+                
+
+
+            }
+            return pro.PRMId;
+        }
 
     }
 }

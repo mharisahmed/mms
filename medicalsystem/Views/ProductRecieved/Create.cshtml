@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_mytemplate.cshtml";
-    int uniqueId = 0;
+
 }
 
 <h2>Recieving Form</h2>
@@ -28,7 +28,7 @@
         <div class="form-group col-md-6 ">
             <div class="DatePicker input-group input-append date" id="DatePicker">
                 <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-                <input type="text" class="form-control" name="dueDate[]" placeholder="Date" />
+                <input type="text" class="form-control" name="Date" placeholder="Date" />
             </div>
         </div>
 
@@ -173,7 +173,7 @@
             // Initialize the date picker for the original due date field
             $(".DatePicker")
                 .datepicker({
-                    format: 'yyyy/mm/dd'
+                    format: 'mm/dd/yyyy'
                 })
                 .on('changeDate', function (evt) {
                     // Revalidate the date field
@@ -205,13 +205,16 @@
             $('#cancelupdateitem').click(function () {
                 $("#new_item").show();
                 $("#update_item").hide();
-
+                var amount = parseInt($('#UpdatetxtCost').val()) * parseInt($('#UpdatetxtQty').val());
+                totalamout.val(parseInt(totalamout.val()) + amount);
             });
 
             //Update Record.
             $('#saveUpdate').click(function () {
                 var recordId = $('#Urid').val();
                 var getworkingrow = $('#' + recordId);
+                var amount = parseInt($('#UpdatetxtCost').val()) * parseInt($('#UpdatetxtQty').val());
+                totalamout.val(parseInt(totalamout.val()) + amount);
                 //update table items
                 getworkingrow.find("td[id=' txtproduct["+recordId+"]']").html($('#Updateddlproduct :selected').text());
                 getworkingrow.find("td[id=' txtQty[" + recordId + "]']").html($('#UpdatetxtQty').val());
@@ -230,8 +233,17 @@
             $('#myTable').on('click', '.EditItem', function () {
                 $("#new_item").hide();
                 $("#update_item").show();
-                var trid = $(this).closest('tr').attr('id');
-                $('#Urid').val(trid)
+                //var trid = $(this).closest('tr').attr('id');
+
+                var recordId = $(this).closest('tr').attr('id');
+                var currentrow = $('#' + recordId);
+                var qty = currentrow.find("td[id=' txtQty[" + recordId + "]']").html();
+                var amount = currentrow.find("td[id=' txtCost[" + recordId + "]']").html();
+
+                var subamount = parseInt(qty) * parseInt(amount);
+                totalamout.val(parseInt(totalamout.val()) - subamount);
+
+                $('#Urid').val(recordId)
                 var val = $(this).closest('tr').find('td:eq(0)').html();
                 //var val1 = $(this).closest('tr').find('td:eq(0)').html();
                 $("#Updateddlproduct option").each(function () {
@@ -284,6 +296,7 @@
                 $('#UpdatetxtExp').val("");
                 $('#UpdatetxtBatchNo').val("");
             }
+
         });
     </script>
 
