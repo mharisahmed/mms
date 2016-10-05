@@ -67,18 +67,24 @@ namespace medicalsystem.DataServices.Services
         }
 
 
-        public int InsertMasterRecieved(tblProductReceivedMaster pro)
+        public int InsertMasterRecieved(tblProductReceivedMaster master)
         {
             //int currid = 0;
             using (var _context = DataContextHelper.GetContext())
             {
-                _context.Insert(pro); 
-                
-
-
+                _context.Insert(master);        
             }
-            return pro.PRMId;
+            return master.PRMId;
         }
 
+        public void InsertDetailRecieved(tblProductReceivedDetail detail)
+        {
+            //int currid = 0;
+            using (var _context = DataContextHelper.GetContext())
+            {
+                _context.Insert(detail);
+            }
+            //return pro.PRMId;
+        }
     }
 }

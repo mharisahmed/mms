@@ -17,7 +17,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model=>model.ModelMaster.DealerId , "Select Dealer ", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ModelMaster.DealerId, "Select Dealer ", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="form-group col-md-4">
                 @*@Html.EditorFor(model => model.CompanyId, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownListFor(model => model.ModelMaster.DealerId, (IEnumerable<SelectListItem>)ViewBag.getDealer, "---Select Dealer---", new { @class = "form-control" })
@@ -116,7 +116,7 @@
 
         <!-- Table For Display Seleted Items-->
         <div class="table-responsive">
-            <table id="myTable" class="table table-hover .table-condensed">
+            <table id="myTable" name="mytbl" class="table table-hover .table-condensed">
                 <tr>
                     <th>
                         Item
@@ -166,6 +166,7 @@
 
     <script>
         $(document).ready(function () {
+
             //Initialize Total Amout With 0.0
             var totalamout = $('#ModelMaster_Amount');
             totalamout.val("0.0");
@@ -187,15 +188,16 @@
             //Add Item To the Table.
             $("#additem").click(function () {
                 
+                $('#myTable tr:last').after('<tr id="' + uniqueid + '"> <td id=" txtproduct[' + uniqueid + ']">' + $('#ddlproduct :selected').text() + '<input name="Prid[' + uniqueid + ']" type="hidden" value="' + $('#ddlproduct :selected').val() + '"> </td>'
+                                                                      +'<td id=" txtQty[' + uniqueid + ']">'     + $('#txtQty').val()                + '<input name="Qty[' + uniqueid + ']" type="hidden" value="' + $('#txtQty').val() + '"></td>'
+                                                                      +'<td id=" txtCost[' + uniqueid + ']">'    + $('#txtCost').val()               + '<input name="Cost[' + uniqueid + ']" type="hidden" value="' + $('#txtCost').val() + '"></td>'
+                                                                      +'<td id=" txtPrice[' + uniqueid + ']">'   + $('#txtPrice').val()              + '<input name="Price[' + uniqueid + ']" type="hidden" value="' + $('#txtPrice').val() + '"></td>'
+                                                                      +'<td id=" txtMfg[' + uniqueid + ']">'     + $('#txtMfg').val()                + '<input name="Mfg[' + uniqueid + ']" type="hidden" value="' + $('#txtMfg').val() + '"></td>'
+                                                                      +'<td id=" txtExp[' + uniqueid + ']">'     + $('#txtExp').val()                + '<input name="Exp[' + uniqueid + ']" type="hidden" value="' + $('#txtExp').val() + '"></td>'
+                                                                      +'<td id=" txtBatch[' + uniqueid + ']">'   + $('#txtBatchNo').val()            + '<input name="Batch[' + uniqueid + ']" type="hidden" value="' + $('#txtBatchNo').val() + '"></td>'
+                                                                      +'<td> <button id="EditItem" type="button" class="btn btn-default EditItem"><i class="fa fa-edit"></i></button>'
+                                                                          + '<button id="DeleteItem" type="button" class="btn btn-default DeleteItem"><i class="fa fa-remove"></i></button>' + '</td> </tr>');
                uniqueid += 1;
-
-               $('#myTable tr:last').after('<tr id="'+uniqueid+'"><td id=" txtproduct['+uniqueid+']">' + $('#ddlproduct :selected').text() + '</td><td id=" txtQty['+uniqueid+']">' + $('#txtQty').val() + '</td>'
-                                                + '<td id=" txtCost[' + uniqueid + ']">' + $('#txtCost').val() + '</td><td id=" txtPrice[' + uniqueid + ']">' + $('#txtPrice').val() + '</td>'
-                                                + '<td id=" txtMfg[' + uniqueid + ']">' + $('#txtMfg').val() + '</td>' + '<td id=" txtExp[' + uniqueid + ']">' + $('#txtExp').val() + '</td>'
-                                                + '<td id=" txtBatch[' + uniqueid + ']">' + $('#txtBatchNo').val() + '</td>' + '<td>'
-                                                + '<button id="EditItem" type="button" class="btn btn-default EditItem"><i class="fa fa-edit"></i></button>'
-                                                + '<button id="DeleteItem" type="button" class="btn btn-default DeleteItem"><i class="fa fa-remove"></i></button>' + '</td></tr>');
-
                var amount = parseInt($('#txtCost').val()) * parseInt($('#txtQty').val());
                totalamout.val(parseInt(totalamout.val()) + amount);
                cleartxts();
@@ -246,18 +248,20 @@
                 $('#Urid').val(recordId)
                 var val = $(this).closest('tr').find('td:eq(0)').html();
                 //var val1 = $(this).closest('tr').find('td:eq(0)').html();
-                $("#Updateddlproduct option").each(function () {
-                    if ($(this).text() == val) {
-                        $(this).attr('selected', 'selected').siblings().removeAttr('selected');
-                    }
-                });
 
-                $('#UpdatetxtQty').val($(this).closest('tr').find('td:eq(1)').html());
-                $('#UpdatetxtCost').val($(this).closest('tr').find('td:eq(2)').html());
-                $('#UpdatetxtPrice').val($(this).closest('tr').find('td:eq(3)').html());
-                $('#UpdatetxtMfg').val($(this).closest('tr').find('td:eq(4)').html());
-                $('#UpdatetxtExp').val($(this).closest('tr').find('td:eq(5)').html());
-                $('#UpdatetxtBatchNo').val($(this).closest('tr').find('td:eq(6)').html());
+                //$("#Updateddlproduct option").each(function () {
+                //    if ($(this).text() == val) {
+                //        $(this).attr('selected', 'selected').siblings().removeAttr('selected');
+                //    }
+                //}); //Prid
+
+                $('#UpdatetxtQty').val($(this).closest('tr').find("input[name*='Prid']").val());
+                $('#UpdatetxtQty').val($(this).closest('tr').find("input[name*='Qty']").val());
+                $('#UpdatetxtCost').val($(this).closest('tr').find("input[name*='Cost']").val());
+                $('#UpdatetxtPrice').val($(this).closest('tr').find("input[name*='Price']").val());
+                $('#UpdatetxtMfg').val($(this).closest('tr').find("input[name*='Mfg']").val());
+                $('#UpdatetxtExp').val($(this).closest('tr').find("input[name*='Exp']").val());
+                $('#UpdatetxtBatchNo').val($(this).closest('tr').find("input[name*='Batch']").val());
 
             });
 
@@ -297,6 +301,7 @@
                 $('#UpdatetxtBatchNo').val("");
             }
 
+            //Ready Function.....
         });
     </script>
 
