@@ -7,9 +7,11 @@ using constrng;
 
 namespace medicalsystem.Controllers
 {
+    
     public class ProductController : Controller
     {
         // GET: Product
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(DataServices.Services.ProductService.Instance.getproducts());

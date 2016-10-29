@@ -7,9 +7,11 @@ using constrng;
 
 namespace medicalsystem.Controllers
 {
+    [Authorize(Roles = "V")]
     public class MedicationTypeController : Controller
     {
         // GET: Type
+     
         public ActionResult Index()
         {
             return View(DataServices.Services.MedicationTypeService.Instance.MedicationTypes());

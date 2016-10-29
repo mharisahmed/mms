@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using constrng;
+using System.Web.Security;
 
 namespace medicalsystem.Controllers
 {
+    [Authorize(Roles = "A")]
     public class CompanyController : Controller
     {
         // GET: Company
+        
         public ActionResult Index()
         {
             var result = DataServices.Services.CompanyService.Instance.Companies();
