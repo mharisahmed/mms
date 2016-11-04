@@ -62,7 +62,7 @@ namespace medicalsystem.DataServices.Services
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                return _context.Fetch<tblDealer>("select DealId, DealerName from tblDealer");
+                return _context.Fetch<tblDealer>("select DealerId, DealerName from tblDealer");
             }
         }
 

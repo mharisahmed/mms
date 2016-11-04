@@ -136,7 +136,7 @@ namespace constrng
     {
 		[Column] public int DealerId { get; set; }
 		[Column] public string DealerName { get; set; }
-		[Column] public string DealerAddress { get; set; }
+		[Column] public string DealerAddres { get; set; }
 		[Column] public string DealerEmail { get; set; }
 		[Column] public int CompanyId { get; set; }
 	}
@@ -160,8 +160,8 @@ namespace constrng
 		[Column] public int PRMId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public int PurchaseRate { get; set; }
-		[Column] public int SalesRate { get; set; }
+		[Column] public int PurchasingPrice { get; set; }
+		[Column] public int SellingPrice { get; set; }
 		[Column] public DateTime MfgDate { get; set; }
 		[Column] public DateTime ExpDate { get; set; }
 		[Column] public string BatchNo { get; set; }
@@ -233,7 +233,7 @@ namespace constrng
 		[Column] public int SIHId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public int PRId { get; set; }
+		[Column] public int PRMId { get; set; }
 	}
     
 	[TableName("dbo.tblType")]
