@@ -54,5 +54,37 @@ namespace medicalsystem.DataServices.Services
             }
 
         }
+
+
+        //Code For Create New Recieved Prodcut Entry
+
+        public List<tblDealer> listofDealers()
+        {
+            using (var _context = DataContextHelper.GetContext())
+            {
+                return _context.Fetch<tblDealer>("select DealId, DealerName from tblDealer");
+            }
+        }
+
+
+        public int InsertMasterRecieved(tblProductReceivedMaster master)
+        {
+            //int currid = 0;
+            using (var _context = DataContextHelper.GetContext())
+            {
+                _context.Insert(master);        
+            }
+            return master.PRMId;
+        }
+
+        public void InsertDetailRecieved(tblProductReceivedDetail detail)
+        {
+            //int currid = 0;
+            using (var _context = DataContextHelper.GetContext())
+            {
+                _context.Insert(detail);
+            }
+            //return pro.PRMId;
+        }
     }
 }

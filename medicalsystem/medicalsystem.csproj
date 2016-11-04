@@ -141,6 +141,9 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="Content\datepicker\datepicker.min.css" />
+    <Content Include="Content\datepicker\datepicker3.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\1.png" />
@@ -216,6 +219,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\ProductRecieved.cs" />
     <Compile Include="Models\tblCompayMeta.cs" />
     <Compile Include="Models\tblDealer.cs" />
     <Compile Include="Models\tblDealerMeta.cs" />
@@ -279,7 +283,9 @@
     <Content Include="Views\Dealers\Edit.cshtml" />
     <Content Include="Views\ProductRecieved\Index.cshtml" />
     <Content Include="Views\ProductRecieved\Details.cshtml" />
+    <Content Include="Views\ProductRecieved\Create.cshtml" />
     <Content Include="Views\ExpiryProduct\Index.cshtml" />
+    <Content Include="Views\ProductRecieved\Create_ProductRecievedPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
