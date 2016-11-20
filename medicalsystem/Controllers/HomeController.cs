@@ -13,10 +13,8 @@ namespace medicalsystem.Controllers
         //use allow anonymous to for skip role checking
         [AllowAnonymous]
         public ActionResult Index()
-
         { 
-            //var db = new  PetaPoco.Database("constrng");
-            //var tblcompnay = db.Fetch<tblCompay>("SELECT * FROM tblCompay");
+    
             return View();
         }
     }

@@ -210,9 +210,11 @@
     <Compile Include="DataServices\Services\MedicationTypeService.cs" />
     <Compile Include="DataServices\Services\ProductService.cs" />
     <Compile Include="DataServices\Services\RecievedProduct.cs" />
+    <Compile Include="Entities\CompanyEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

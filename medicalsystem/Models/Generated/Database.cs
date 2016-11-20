@@ -136,7 +136,7 @@ namespace constrng
     {
 		[Column] public int DealerId { get; set; }
 		[Column] public string DealerName { get; set; }
-		[Column] public string DealerAddres { get; set; }
+		[Column] public string DealerAddress { get; set; }
 		[Column] public string DealerEmail { get; set; }
 		[Column] public int CompanyId { get; set; }
 	}

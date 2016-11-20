@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using constrng;
 using System.Web.Security;
-
+using medicalsystem.Models;
 namespace medicalsystem.Controllers
 {
     [Authorize(Roles = "A")]
@@ -15,8 +15,10 @@ namespace medicalsystem.Controllers
         
         public ActionResult Index()
         {
-            var result = DataServices.Services.CompanyService.Instance.Companies();
-            return View(result);
+            CompanyModel model = new CompanyModel();
+            model.CompanyDetails = DataServices.Services.CompanyService.Instance.Companies();
+            //var result = DataServices.Services.CompanyService.Instance.Companies();
+            return View(model);
         }
 
         [HttpGet]
