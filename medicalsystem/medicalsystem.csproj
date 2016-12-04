@@ -201,6 +201,7 @@
     <Compile Include="Controllers\MedicationTypeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductRecievedController.cs" />
+    <Compile Include="Controllers\ProductSaleController.cs" />
     <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="DataServices\DataContextHelper.cs" />
     <Compile Include="DataServices\Services\CompanyService.cs" />
@@ -210,7 +211,9 @@
     <Compile Include="DataServices\Services\MedicationTypeService.cs" />
     <Compile Include="DataServices\Services\ProductService.cs" />
     <Compile Include="DataServices\Services\RecievedProduct.cs" />
+    <Compile Include="DataServices\Services\SaleProduct.cs" />
     <Compile Include="Entities\CompanyEntity.cs" />
+    <Compile Include="Entities\ProductSaleEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,6 +291,9 @@
     <Content Include="Views\ProductRecieved\Create.cshtml" />
     <Content Include="Views\ExpiryProduct\Index.cshtml" />
     <Content Include="Views\ProductRecieved\Create_ProductRecievedPartial.cshtml" />
+    <Content Include="Views\ProductSale\Index.cshtml" />
+    <Content Include="Views\ProductSale\Details.cshtml" />
+    <Content Include="Views\ProductSale\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
