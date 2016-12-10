@@ -16,7 +16,6 @@ namespace medicalsystem.Controllers
 
             return View(DataServices.Services.RecievedProduct.Instance.RecievedMasterDetails());
         }
-
         
         [HttpGet]
         // Get Detail Of Master Recieved.
@@ -69,8 +68,10 @@ namespace medicalsystem.Controllers
         // Get Detail Of Master Recieved.
         public ActionResult Edit(int id)
         {
-            //Edit code goes here!!!
-            return View();
+            var MasterModel= DataServices.Services.RecievedProduct.Instance.EditMasterRecieved(id);
+            ViewBag.getDealers = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealId", "DealerName");
+            return View(MasterModel);
         }
+
     }
 }

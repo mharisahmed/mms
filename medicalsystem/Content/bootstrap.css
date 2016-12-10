@@ -703,7 +703,8 @@ blockquote:after {
   content: "";
 }
 
-address {
+
+s {
   display: block;
   margin-bottom: 20px;
   font-style: normal;

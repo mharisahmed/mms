@@ -136,7 +136,7 @@ namespace constrng
     {
 		[Column] public int DealId { get; set; }
 		[Column] public string DealerName { get; set; }
-		[Column] public string DealerAddres { get; set; }
+		[Column] public string DealerAddress { get; set; }
 		[Column] public string DealerEmail { get; set; }
 		[Column] public int CompanyId { get; set; }
 	}
@@ -257,18 +257,19 @@ namespace constrng
 		[Column] public string EmailId { get; set; }
 		[Column] public string MobileNumber { get; set; }
 		[Column] public string Password { get; set; }
-		[Column] public int Designation { get; set; }
+		[Column] public int? Designation { get; set; }
 		[Column] public int? SecurityQuestionOne { get; set; }
 		[Column] public string SecurityAnswerOne { get; set; }
 		[Column] public int? SecurityQuestionTwo { get; set; }
 		[Column] public string SecurityAnswerTwo { get; set; }
-		[Column] public bool IsActive { get; set; }
-		[Column] public bool IsReset { get; set; }
+		[Column] public bool? IsActive { get; set; }
+		[Column] public bool? IsReset { get; set; }
 		[Column] public string CreatedBy { get; set; }
-		[Column] public DateTime CreatedDate { get; set; }
+		[Column] public DateTime? CreatedDate { get; set; }
 		[Column] public string Modifiedby { get; set; }
-		[Column] public DateTime ModifiedDate { get; set; }
+		[Column] public DateTime? ModifiedDate { get; set; }
 		[Column] public DateTime? LastLogin { get; set; }
 		[Column] public string UserImg { get; set; }
+		[Column] public string Role { get; set; }
 	}
 }

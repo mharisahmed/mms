@@ -238,7 +238,7 @@
     <Content Include="Views\ProductRecieved\Index.cshtml" />
     <Content Include="Views\ProductRecieved\Details.cshtml" />
     <Content Include="Views\ProductRecieved\Create.cshtml" />
-    <Content Include="Views\ProductRecieved\Create_ProductRecievedPartial.cshtml" />
+    <Content Include="Views\ProductRecieved\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -55,7 +55,6 @@ namespace medicalsystem.DataServices.Services
 
         }
 
-
         //Code For Create New Recieved Prodcut Entry
 
         public List<tblDealer> listofDealers()
@@ -65,7 +64,6 @@ namespace medicalsystem.DataServices.Services
                 return _context.Fetch<tblDealer>("select DealId, DealerName from tblDealer");
             }
         }
-
 
         public int InsertMasterRecieved(tblProductReceivedMaster master)
         {
@@ -86,5 +84,14 @@ namespace medicalsystem.DataServices.Services
             }
             //return pro.PRMId;
         }
+
+        public tblProductReceivedMaster EditMasterRecieved(int id) {
+            using (var _context = DataContextHelper.GetContext()) {
+                var RecievedMaster = _context.Single<tblProductReceivedMaster>("Select * From tblProductReceivedMaster where PRMID=@0", id);
+                return RecievedMaster;
+            }
+        }
+
+
     }
 }
