@@ -30,7 +30,7 @@ namespace medicalsystem.Controllers
         public ActionResult Create()
         {
 
-            ViewBag.getDealer = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealId", "DealerName");
+            ViewBag.getDealer = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealerId", "DealerName");
             ViewBag.getProduct = new SelectList(DataServices.Services.RecievedProduct.Instance.listofProduct(), "ProductId", "ProductName");
             return View();
         }
@@ -69,7 +69,7 @@ namespace medicalsystem.Controllers
         public ActionResult Edit(int id)
         {
             var MasterModel= DataServices.Services.RecievedProduct.Instance.EditMasterRecieved(id);
-            ViewBag.getDealers = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealId", "DealerName");
+            ViewBag.getDealers = new SelectList(DataServices.Services.RecievedProduct.Instance.listofDealers(), "DealerId", "DealerName");
             return View(MasterModel);
         }
 

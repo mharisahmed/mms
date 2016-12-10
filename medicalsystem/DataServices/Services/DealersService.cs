@@ -49,7 +49,7 @@ namespace medicalsystem.DataServices.Services
         {
             using (var _context = DataContextHelper.GetContext())
             {
-                var dealer = _context.Single<tblDealer>("Select * From tblDealer where DealId=@0", id);
+                var dealer = _context.Single<tblDealer>("Select * From tblDealer where DealerId=@0", id);
                 return dealer;
             }
         }

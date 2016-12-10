@@ -130,11 +130,11 @@ namespace constrng
 	}
     
 	[TableName("dbo.tblDealer")]
-	[PrimaryKey("DealId")]
+	[PrimaryKey("DealerId")]
 	[ExplicitColumns]
     public partial class tblDealer : constrngDB.Record<tblDealer>  
     {
-		[Column] public int DealId { get; set; }
+		[Column] public int DealerId { get; set; }
 		[Column] public string DealerName { get; set; }
 		[Column] public string DealerAddress { get; set; }
 		[Column] public string DealerEmail { get; set; }
