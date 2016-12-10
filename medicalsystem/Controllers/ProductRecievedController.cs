@@ -56,7 +56,7 @@ namespace medicalsystem.Controllers
                     prdetail.SellingPrice = Price[i];
                     prdetail.MfgDate = Convert.ToDateTime(Mfg[i]);
                     prdetail.ExpDate = Convert.ToDateTime(Exp[i]);
-                    prdetail.BatchNo = Batch[i];
+                    prdetail.BatchNo = ""; //Batch[i];
                     DataServices.Services.RecievedProduct.Instance.InsertDetailRecieved(prdetail);
                 }
                 // Detail Items Goes here.

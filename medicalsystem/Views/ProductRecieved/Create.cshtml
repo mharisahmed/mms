@@ -20,9 +20,9 @@
                 <th>
                     @Html.LabelFor(model => model.ModelMaster.DealerId, "Select Dealer ", htmlAttributes: new { @class = "control-label" })
                 </th>
-                <td>
+                <th>
                     @Html.LabelFor(model => model.ModelMaster.Date, htmlAttributes: new { @class = "control-label" })
-                </td>
+                </th>
                 <th>
                     @Html.LabelFor(model => model.ModelMaster.Amount, htmlAttributes: new { @class = "control-label" })
                 </th>
@@ -47,25 +47,19 @@
                     @Html.ValidationMessageFor(model => model.ModelMaster.Amount, "", new { @class = "text-danger" })
                 </td>
             </tr>
-        </table>
-
-        <table class="table">
             <tr>
-                <th>
-                    @Html.LabelFor(model => model.ModelMaster.Remarks, htmlAttributes: new { @class = "control-label" })
-                </th>
-            </tr>
-            <tr>
-                <td>
+                <td align="right">
+                    <b>  @Html.LabelFor(model => model.ModelMaster.Remarks, htmlAttributes: new { @class = "control-label" })</b>
+                </td>
+                <td colspan="2">
                     @Html.TextAreaFor(model => model.ModelMaster.Remarks, new { @class = "form-control remark", @rows = "2", @id = "remarks" })
                     @Html.ValidationMessageFor(model => model.ModelMaster.Remarks, "", new { @class = "text-danger" })
                 </td>
             </tr>
+           
         </table>
-               
-        <br>
         <div  id="new_item">
-            <h4>Add product info</h4>
+            <h3>Add product information</h3>
             <div class="form-group">
                 <table class="table">
                     <tr>
@@ -78,23 +72,23 @@
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <td>
-                            @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, "-- Select Item --", new { @class = "form-control", @id = "ddlproduct" })
+                        <td class="dropdown">
+                            @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, "Select product", new { @class = "form-control createTableRow", @id = "ddlproduct", @style = "width:auto;" })
                         </td>
                         <td>
-                            <input type="number" class="form-control" name="txtQty" id="txtQty" placeholder="Qty" />
+                            <input type="number" class="form-control createTableRow" name="txtQty" id="txtQty" placeholder="Qty" />
                         </td>
                         <td>
-                            <input type="number" class="form-control" name="txtCost" id="txtCost" placeholder="Cost" />
+                            <input type="number" class="form-control createTableRow" name="txtCost" id="txtCost" placeholder="Cost" />
                         </td>
                         <td>
-                            <input type="number" class="form-control" name="txtPrice" id="txtPrice" placeholder="Price" />
+                            <input type="number" class="form-control createTableRow" name="txtPrice" id="txtPrice" placeholder="Price" />
                         </td>
                         <td>
-                            <input type="date" class="form-control" name="txtMfg" id="txtMfg" placeholder="MFG Date" />
+                            <input type="date" class="form-control createTableRow" name="txtMfg" id="txtMfg" placeholder="MFG Date" />
                         </td>
                         <td>
-                            <input type="date" class="form-control" name="txtExp" id="txtExp" placeholder="Exp Date" />
+                            <input type="date" class="form-control createTableRow" name="txtExp" id="txtExp" placeholder="Exp Date" />
                         </td>
                         <td>
                             <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
@@ -120,22 +114,22 @@
                     <tr>
                         <td>
                             <input type="hidden" id="Urid" value="">
-                            @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control createTableRow", @id = "Updateddlproduct" })
+                            @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control ", @id = "Updateddlproduct" })
                         </td>
                         <td>
-                            <input type="number" class="form-control createTableRow" name="txtQty" id="UpdatetxtQty" placeholder="Qty" />
+                            <input type="number" class="form-control" name="txtQty" id="UpdatetxtQty" placeholder="Qty" />
                         </td>
                         <td>
-                            <input type="number" class="form-control createTableRow" name="txtCost" id="UpdatetxtCost" placeholder="Cost" />
+                            <input type="number" class="form-control " name="txtCost" id="UpdatetxtCost" placeholder="Cost" />
                         </td>
                         <td>
-                            <input type="number" class="form-control createTableRow" name="txtPrice" id="UpdatetxtPrice" placeholder="Price" />
+                            <input type="number" class="form-control " name="txtPrice" id="UpdatetxtPrice" placeholder="Price" />
                         </td>
                         <td>
-                            <input type="date" class="form-control createTableRow" name="txtMfg" id="UpdatetxtMfg" placeholder="MFG Date" />
+                            <input type="date" class="form-control " name="txtMfg" id="UpdatetxtMfg" placeholder="MFG Date" />
                         </td>
                         <td>
-                            <input type="date" class="form-control createTableRow" name="txtExp" id="UpdatetxtExp" placeholder="Exp Date" />
+                            <input type="date" class="form-control " name="txtExp" id="UpdatetxtExp" placeholder="Exp Date" />
                         </td>
                         <td>
                             <button id="saveUpdate" type="button" class="btn btn-default addButton"><i class="fa fa-save"></i></button>
@@ -196,9 +190,9 @@
                     <th>
                         EXP Date
                     </th>
-                    <th>
+                    @*<th>
                         Batch No.
-                    </th>
+                    </th>*@
                     <th>
                         Action
                     </th>
@@ -209,9 +203,9 @@
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+      
             <input type="submit" value="Submit" class="btn btn-success" />
-        </div>
+
     </div>
 }
 
@@ -247,11 +241,10 @@
 
             //Add Item To the Table.
             $("#additem").click(function () {
-                debugger;
                 var Valid = false;
                 var count = 0
                 $('.createTableRow').each(function () {
-                        if ($(this).val() != ''||$(this).text!='') {
+                        if ($(this).val() != '') {
                             count += 1;
                         }
                 });
@@ -263,7 +256,7 @@
                                                                           + '<td id=" txtPrice[' + uniqueid + ']">' + $('#txtPrice').val() + '<input name="Price[' + uniqueid + ']" type="hidden" value="' + $('#txtPrice').val() + '"></td>'
                                                                           + '<td id=" txtMfg[' + uniqueid + ']">' + $('#txtMfg').val() + '<input name="Mfg[' + uniqueid + ']" type="hidden" value="' + $('#txtMfg').val() + '"></td>'
                                                                           + '<td id=" txtExp[' + uniqueid + ']">' + $('#txtExp').val() + '<input name="Exp[' + uniqueid + ']" type="hidden" value="' + $('#txtExp').val() + '"></td>'
-                                                                          + '<td id=" txtBatch[' + uniqueid + ']">' + $('#txtBatchNo').val() + '<input name="Batch[' + uniqueid + ']" type="hidden" value="' + $('#txtBatchNo').val() + '"></td>'
+                                                                          //+ '<td id=" txtBatch[' + uniqueid + ']">' + $('#txtBatchNo').val() + '<input name="Batch[' + uniqueid + ']" type="hidden" value="' + $('#txtBatchNo').val() + '"></td>'
                                                                           + '<td> <button id="EditItem" type="button" class="btn btn-default EditItem"><i class="fa fa-edit"></i></button>'
                                                                               + '<button id="DeleteItem" type="button" class="btn btn-default DeleteItem"><i class="fa fa-remove"></i></button>' + '</td> </tr>');
                     uniqueid += 1;
@@ -297,7 +290,7 @@
                 getworkingrow.find("td[id=' txtPrice[" + recordId + "]']").html($('#UpdatetxtPrice').val());
                 getworkingrow.find("td[id=' txtMfg[" + recordId + "]']").html($('#UpdatetxtMfg').val());
                 getworkingrow.find("td[id=' txtExp[" + recordId + "]']").html($('#UpdatetxtExp').val());
-                getworkingrow.find("td[id=' txtBatch[" + recordId + "]']").html($('#UpdatetxtBatchNo').val());
+                //getworkingrow.find("td[id=' txtBatch[" + recordId + "]']").html($('#UpdatetxtBatchNo').val());
                 cleartxts();
                 $("#new_item").show();
                 $("#update_item").hide();
@@ -334,7 +327,7 @@
                 $('#UpdatetxtPrice').val($(this).closest('tr').find("input[name*='Price']").val());
                 $('#UpdatetxtMfg').val($(this).closest('tr').find("input[name*='Mfg']").val());
                 $('#UpdatetxtExp').val($(this).closest('tr').find("input[name*='Exp']").val());
-                $('#UpdatetxtBatchNo').val($(this).closest('tr').find("input[name*='Batch']").val());
+                //$('#UpdatetxtBatchNo').val($(this).closest('tr').find("input[name*='Batch']").val());
 
             });
 
@@ -357,21 +350,21 @@
 
 
             function cleartxts() {
-                $('#ddlproduct :selected').val($("#ddlproduct option:first").val());
+                $('#ddlproduct').val("");
                 $('#txtQty').val("");
                 $('#txtCost').val("");
                 $('#txtPrice').val("");
                 $('#txtMfg').val("");
                 $('#txtExp').val("");
-                $('#txtBatchNo').val("");
+                //$('#txtBatchNo').val("");
                
-                $('#Updateddlproduct :selected').val($("#Updateddlproduct option:first").val());
+                $('#Updateddlproduct').val("");
                 $('#UpdatetxtQty').val("");
                 $('#UpdatetxtCost').val("");
                 $('#UpdatetxtPrice').val("");
                 $('#UpdatetxtMfg').val("");
                 $('#UpdatetxtExp').val("");
-                $('#UpdatetxtBatchNo').val("");
+                //$('#UpdatetxtBatchNo').val("");
             }
 
             //Ready Function.....
