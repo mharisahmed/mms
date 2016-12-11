@@ -65,79 +65,69 @@
             </div>
         </div>
         <h4>Add Items Detail</h4>
-        <div class="row" id="new_item">
-          
-            <div class="form-group col-md-10 col-md-offset-2">
-               
-                <div class="col-md-4">
+        <div class="row col-md-10 col-md-offset-2" id="new_item">
+
+            <div class="form-group col-md-9 col-md-offset-3">
+
+                <div class="col-md-5">
                     @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, "-- Select Item --", new { @class = "form-control", @id = "ddlproduct" })
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <input type="text" class="form-control" name="txtQty" id="txtQty" placeholder="Qty" />
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <input type="text" class="form-control" name="txtPrice" id="txtCost" placeholder="Price" />
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
         </div>
 
-        <div class="row" id="update_item">
+        <div class="row col-md-10 col-md-offset-2" id="update_item">
             <h4>Update Items</h4>
             <div class="form-group">
                 <input type="hidden" id="Urid" value="">
-                <div class="col-md-2">
-                    @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, new { @class = "form-control", @id = "Updateddlproduct" })
+                <div class="form-group col-md-10 col-md-offset-2">
+
+                    <div class="col-md-5">
+                        @Html.DropDownList("Product", (IEnumerable<SelectListItem>)ViewBag.getProduct, "-- Select Item --", new { @class = "form-control", @id = "ddlproduct" })
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" name="txtQty" id="txtQty" placeholder="Qty" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" name="txtPrice" id="txtCost" placeholder="Price" />
+                    </div>
+                    <div class="col-md-1">
+                        <button id="additem" type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                    </div>
                 </div>
-                <div class="col-md-1">
-                    <input type="text" class="form-control" name="txtQty" id="UpdatetxtQty" placeholder="Qty" />
-                </div>
-                <div class="col-md-1">
-                    <input type="text" class="form-control" name="txtCost" id="UpdatetxtCost" placeholder="Cost" />
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control" name="txtPrice" id="UpdatetxtPrice" placeholder="Price" />
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="DatePicker form-control" name="txtMfg" id="UpdatetxtMfg" placeholder="MFG Date" />
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="DatePicker form-control" name="txtExp" id="UpdatetxtExp" placeholder="Exp Date" />
-                </div>
-                <div class="col-md-1">
-                    <input type="text" class="form-control" name="txtBatchNo" id="UpdatetxtBatchNo" placeholder="Batch No" />
-                </div>
-                <div class="col-md-1">
-                    <button id="saveUpdate" type="button" class="btn btn-default addButton"><i class="fa fa-save"></i></button>
-                </div>
-                <div class="col-md-1">
-                    <button id="cancelupdateitem" type="button" class="btn btn-default addButton"><i class="fa fa-close"></i></button>
-                </div>
+
             </div>
         </div>
 
         <!-- Table For Display Seleted Items-->
-        <div class="table-responsive">
-            <table id="myTable" name="mytbl" class="table table-hover .table-condensed">
-                <tr>
-                    <th>
-                        Item
-                    </th>
-                    <th>
-                        Qty
-                    </th>
-                    <th>
-                        Price
-                    </th>
-                    <th>
-                        Action
-                    </th>
-                </tr>
-            </table>
+        <div class="row col-md-10 col-md-offset-2">
+            <div class="table-responsive ">
+                <table id="myTable" name="mytbl" class="table table-hover .table-condensed">
+                    <tr>
+                        <th>
+                            Item
+                        </th>
+                        <th>
+                            Qty
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </table>
+            </div>
         </div>
-
     </div>
 
     <div class="form-group">
