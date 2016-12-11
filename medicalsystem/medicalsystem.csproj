@@ -180,9 +180,11 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductRecievedController.cs" />
     <Compile Include="Controllers\UserManagementController.cs" />
+    <Compile Include="CustomEntities\InventoryEntity.cs" />
     <Compile Include="DataServices\DataContextHelper.cs" />
     <Compile Include="DataServices\Services\CompanyService.cs" />
     <Compile Include="DataServices\Services\DealersService.cs" />
+    <Compile Include="DataServices\Services\InventoryService.cs" />
     <Compile Include="DataServices\Services\LoginService.cs" />
     <Compile Include="DataServices\Services\MedicationTypeService.cs" />
     <Compile Include="DataServices\Services\ProductService.cs" />
@@ -195,6 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InventoryModel.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="Models\ProductRecieved.cs" />
     <Compile Include="Models\tblDealer.cs" />
@@ -240,6 +243,7 @@
     <Content Include="Views\ProductRecieved\Details.cshtml" />
     <Content Include="Views\ProductRecieved\Create.cshtml" />
     <Content Include="Views\ProductRecieved\Edit.cshtml" />
+    <Content Include="Views\Inventory\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,7 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Inventory\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

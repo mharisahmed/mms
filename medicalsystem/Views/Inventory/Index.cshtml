@@ -1,0 +1,33 @@
+﻿@model medicalsystem.Models.InventoryModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>InventoryModel</h4>
+    <div class="table-responsive">
+        <table class="table table-hover .table-condensed">
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+            </tr>
+            @foreach (var items in Model.InventoryEntity)
+            {
+                <tr>
+                    <td> @items.ProductName  </td>
+                    <td>@items.Quantity</td>
+                </tr>
+
+
+            }
+        </table>
+    </div>
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
