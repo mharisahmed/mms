@@ -233,7 +233,6 @@ namespace constrng
 		[Column] public int SIHId { get; set; }
 		[Column] public int ProductId { get; set; }
 		[Column] public int Quantity { get; set; }
-		[Column] public int PRMId { get; set; }
 	}
     
 	[TableName("dbo.tblType")]

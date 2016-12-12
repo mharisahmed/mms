@@ -1350,7 +1350,7 @@ namespace PetaPoco
                             else
                                 return null;
                         }
-
+                        cmd.CommandText += ";\nSELECT @@IDENTITY AS NewID;";
                         object id = _provider.ExecuteInsert(this, cmd, primaryKeyName);
 
                         // Assign the ID back to the primary key property

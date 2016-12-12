@@ -1,0 +1,62 @@
+﻿@using medicalsystem.Models
+@model ProductSale
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table table-hover .table-condensed">
+        <tr>
+            <th>
+                @Html.Label("Date")
+            </th>
+            <th>
+               @Html.Label("Customer")
+            </th>
+            <th>
+                @Html.Label("Amount")
+            </th>
+            <th>
+                @Html.Label("Discount")
+            </th>
+            <th>
+
+           @Html.Label("Remarks")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.SaleMaster)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td class="dollar">
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SMId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.SMId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SMId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

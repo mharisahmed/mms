@@ -179,6 +179,7 @@
     <Compile Include="Controllers\MedicationTypeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductRecievedController.cs" />
+    <Compile Include="Controllers\ProductSaleController.cs" />
     <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="CustomEntities\InventoryEntity.cs" />
     <Compile Include="DataServices\DataContextHelper.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="DataServices\Services\MedicationTypeService.cs" />
     <Compile Include="DataServices\Services\ProductService.cs" />
     <Compile Include="DataServices\Services\RecievedProduct.cs" />
+    <Compile Include="DataServices\Services\SaleProduct.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +202,7 @@
     <Compile Include="Models\InventoryModel.cs" />
     <Compile Include="Models\PetaPoco.cs" />
     <Compile Include="Models\ProductRecieved.cs" />
+    <Compile Include="CustomEntities\ProductSaleEntity.cs" />
     <Compile Include="Models\tblDealer.cs" />
     <Compile Include="Models\tblProduct.cs" />
     <Compile Include="Models\tblProductReceivedDetail.cs" />
@@ -244,6 +247,9 @@
     <Content Include="Views\ProductRecieved\Create.cshtml" />
     <Content Include="Views\ProductRecieved\Edit.cshtml" />
     <Content Include="Views\Inventory\Index.cshtml" />
+    <Content Include="Views\ProductSale\Create.cshtml" />
+    <Content Include="Views\ProductSale\Details.cshtml" />
+    <Content Include="Views\ProductSale\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
